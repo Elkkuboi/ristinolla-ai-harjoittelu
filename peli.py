@@ -2,8 +2,6 @@
 Tänne tulee pelimoottori ristinollaan.
 '''
 
-import random
-import json
 
 
 
