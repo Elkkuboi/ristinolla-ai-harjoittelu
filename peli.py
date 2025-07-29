@@ -76,3 +76,27 @@ def tarkista_tasapeli(lauta):
 
 
 
+''' Luodaan luokka botille ja alustetaan botin toiminta '''
+import random
+import json
+
+class robotti:
+    def __init__(self, oppimisnopeus = 0.1, epsilon = 0.1):
+        """
+        Alustetaan robotti ja sen muuttujat
+        """
+
+        self.arvot = {} # (tila, arvo) parit
+        self.oppimisnopeus = oppimisnopeus
+        self.epsilon = epsilon
+
+
+    def hae_arvot(self, tila_tupple):
+        """
+        Hakee tilan arvon ja palauttaa 0.5 jos uusi
+        """
+        return self.arvot.get(tila_tupple, 0.5)        
+    
+
+    def valitse_siirto(self, lauta, pelaaja, mahdolliset_siirrot):
+        
