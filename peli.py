@@ -75,3 +75,6 @@ def tarkista_tasapeli(lauta):
 
 
 
+
+
+
