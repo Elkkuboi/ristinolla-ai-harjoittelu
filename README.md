@@ -1,6 +1,28 @@
-Ristinolla, git, harjoitus, AI
+## Projektin tavoitteet
 
-Tämä on projekti, jossa opettelen gitin käyttöä, koodaan pythonilla pelimoottorin ristinollalle, ja koitan "käsin" ohjelmoida botin, joka oppii pelaamaan ristinollaa.
+- Harjoitella git-versionhallinnan käyttöä
+- Toteuttaa ristinollan pelimoottori Pythonilla
+- Kehittää AI-botti, joka oppii pelaamaan ristinollaa tallentamalla ja arvioimalla pelitilanteita
 
-Botti tulee oppimaan siten, että tallentaa jokaisen pelaamansa tilanteen eri pelilaudoista, ja asettaa jokaiselle mahdolliselle tilanteelle arvon,
-jota sitten päivitetään sitä mukaa kun botti pelaa jonkun mahdollisista siirroista.
+## Käyttöohjeet
+
+1. Kloonaa projekti:
+    ```bash
+    git clone https://github.com/kayttaja/ristinolla-ai-harjoittelu.git
+    ```
+2. Siirry projektihakemistoon:
+    ```bash
+    cd ristinolla-ai-harjoittelu
+    ```
+3. Avaa projektin näkymä:
+    ```bash
+    code ristinolla-ai-harjoittelu
+    ```
+
+## Riippuvuudet
+
+- Python 3.x
+
+## Lisätietoja
+
+Projektia kehitetään oppimismielessä. Kaikki palaute ja kehitysehdotukset ovat tervetulleita.

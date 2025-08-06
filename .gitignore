@@ -1,0 +1,13 @@
+# Treenauksen tuloksena syntyvä iso tiedosto
+arvot.json
+
+# Pythonin välimuistikansiot
+__pycache__/
+*.pyc
+
+# Virtuaaliympäristöt
+venv/
+.venv/
+
+# VS Code -editorin asetuskansio
+.vscode/

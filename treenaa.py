@@ -118,4 +118,4 @@ def kouluta_bottia(pelien_maara, nayta_laudat = False, n = 0):
     print(f"Koulutukseen kului aikaa: {loppuaika - alkuaika:.2f} sekuntia.")
 
 
-kouluta_bottia(100, True, 0.01)
+kouluta_bottia(10000, True)
