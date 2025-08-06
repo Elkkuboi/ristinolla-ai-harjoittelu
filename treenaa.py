@@ -21,6 +21,9 @@ ilmoitus
 from peli import robotti, luo_lauta, hae_mahdolliset_siirrot, tee_siirto, tarkista_voitto, tarkista_tasapeli, tulosta_lauta
 import time
 
+
+
+
 def kouluta_bottia(pelien_maara, nayta_laudat = False, n = 0):
     '''
     kouluttaa bottia pelaamaan itseään vastaan anettu määrä pelejä
@@ -30,6 +33,12 @@ def kouluta_bottia(pelien_maara, nayta_laudat = False, n = 0):
     # Luodaan botti-olio. Tämä botti pelaa sekä X:sää että O:ta.
     botti = robotti()
     botti.lataa_arvot() # Ladataan aiempi koulutus
+
+
+    # MUOKKAA NÄITÄ ARVOJA, ALKUUN KANNATTAA OLLA KORKEAT
+    botti.epsilon = 0.1
+    botti.oppimisnopeus = 0.1
+
 
     pelaaja_X = 1
     pelaaja_O = -1

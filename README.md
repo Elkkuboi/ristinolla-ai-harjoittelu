@@ -23,8 +23,8 @@
     ```
 3. Avaa projektin näkymä (jos käytät vscodea):
     ```bash
-    code peli.py # jotta voit säätää oppimisnopeutta ja muuta (alkuun kannattaa olla suuremmat)
-    code treenaa.py # Aja treenaamisfunktio omilla parametreilla
+    code peli.py # jos haluat tarkastella pelimoottoria ja botin aivoja
+    code treenaa.py # Aja treenaamisfunktio omilla parametreilla, (huom: laita korkeat epsilon ja oppimisnopeus alkuun)
     code pelaa.py # jotta voit pelata bottia vastaan ! Keskeytä pelaaminen antamalla vuorollasi "10"
     ```
 
