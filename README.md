@@ -14,9 +14,11 @@
     ```bash
     cd ristinolla-ai-harjoittelu
     ```
-3. Avaa projektin näkymä:
+3. Avaa projektin näkymä (jos käytät vscodea):
     ```bash
-    code ristinolla-ai-harjoittelu
+    code peli.py # jotta voit säätää oppimisnopeutta ja muuta
+    code treenaa.py # Voit ajaa treenaamisfunktion omilla parametreilla
+    code pelaa.py # jotta voit pelata bottia vastaan
     ```
 
 ## Riippuvuudet
