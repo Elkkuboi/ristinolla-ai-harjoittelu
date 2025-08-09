@@ -156,7 +156,7 @@ class robotti:
         vanha_arvo = self.hae_arvot(edellinen_tila)
 
         # tarkastetaan, tuliko palkintoa ja päivitetään arvo
-        if palkinto:
+        if palkinto is not None:
             tuleva_arvo = palkinto
 
         # jos ei palkintoa, niin
