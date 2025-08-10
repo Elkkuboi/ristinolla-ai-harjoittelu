@@ -99,6 +99,7 @@ def kouluta_bottia(pelien_maara, nayta_laudat = False, n = 0):
             voittaja = tarkista_voitto(lauta)
             haviaja = -voittaja
             if voittaja != 0:
+                botti.paivita_arvot_havio(lauta, haviaja)
                 # Annetaan palkinto voittajalle ja piiskataan häviäjää
                 botti.paivita_arvot(edellinen_tila[voittaja], None, palkinto = 1)
                 botti.paivita_arvot(edellinen_tila[haviaja], None, palkinto = 0)
