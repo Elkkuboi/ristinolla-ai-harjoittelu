@@ -24,27 +24,13 @@ import time
 
 
 
-def kouluta_bottia(pelien_maara, nayta_laudat = False, n = 0):
+def kouluta_bottia(botti, pelien_maara, nayta_laudat = False, n = 0, aloittaja = 1):
     '''
     kouluttaa bottia pelaamaan itseään vastaan anettu määrä pelejä
     Mikäli haluat nähdä kun laudat vilisee, valitse näytä_laudat = True
     '''
 
-    # Luodaan botti-olio. Tämä botti pelaa sekä X:sää että O:ta.
-    botti = robotti()
-    botti.lataa_arvot() # Ladataan aiempi koulutus
-
-
-    # MUOKKAA NÄITÄ ARVOJA, ALKUUN KANNATTAA OLLA KORKEAT
-    botti.epsilon = 0.1
-    botti.oppimisnopeus = 0.1
-
-
-    pelaaja_X = 1
-    pelaaja_O = -1
-
-    print(f"Aloitetaan kouluttaminen, pelataan {pelien_maara} peliä...")
-    alkuaika = time.time()
+    print(f"Pelataan {pelien_maara} peliä jotka aloittaa pelaaja {aloittaja} ...")
     
     ''' Pääsilmukka koulutusfunktiolle'''
 
@@ -54,7 +40,7 @@ def kouluta_bottia(pelien_maara, nayta_laudat = False, n = 0):
         '''pelin alustus'''
 
         lauta = luo_lauta()
-        nykyinen_pelaaja = pelaaja_X
+        nykyinen_pelaaja = aloittaja
 
         # sanakirja johon tallennetaan viimeisin tila, jotta voimme päivittää arvoja emmekä unohda mikä tilanne oli
         edellinen_tila = {} # Avaimena toimii 1 tai -1
@@ -99,6 +85,7 @@ def kouluta_bottia(pelien_maara, nayta_laudat = False, n = 0):
             voittaja = tarkista_voitto(lauta)
             haviaja = -voittaja
             if voittaja != 0:
+                botti.paivita_arvot_havio(lauta, haviaja)
                 # Annetaan palkinto voittajalle ja piiskataan häviäjää
                 botti.paivita_arvot(edellinen_tila[voittaja], None, palkinto = 1)
                 botti.paivita_arvot(edellinen_tila[haviaja], None, palkinto = 0)
@@ -116,15 +103,27 @@ def kouluta_bottia(pelien_maara, nayta_laudat = False, n = 0):
         
         # Tulostetaan edistymistä
         if peli_nro % 1000 == 0:
-            print(f"pelattu {peli_nro}/{pelien_maara} peliä...")
-    
-    # kun pelit pelattu niin tallenetaan
-    botti.tallenna_arvot()
-    loppuaika = time.time()
+            print(f"pelattu {peli_nro}/{pelien_maara} peliä...", end='\r', flush=True)
+    print()
 
-    print("\n Koulutus valmis!")
-    print(f"Opitut arvot on tallennettu tiedostoon 'arvot.json'.")
-    print(f"Koulutukseen kului aikaa: {loppuaika - alkuaika:.2f} sekuntia.")
+botti = robotti()
+botti.lataa_arvot() # Ladataan aiempi koulutus
 
+# MUOKKAA NÄITÄ ARVOJA, ALKUUN KANNATTAA OLLA KORKEAT
+botti.epsilon = 0.1
+botti.oppimisnopeus = 0.1
 
-kouluta_bottia(100000)
+pelaaja_X = 1
+pelaaja_O = -1
+
+alkuaika = time.time()
+kouluta_bottia(botti, 500000, aloittaja = pelaaja_X)
+kouluta_bottia(botti, 500000, aloittaja = pelaaja_O)
+loppuaika = time.time()
+
+# kun pelit pelattu niin tallenetaan
+botti.tallenna_arvot()
+
+print("Koulutus valmis!")
+print(f"Opitut arvot on tallennettu tiedostoon 'arvot.json'.")
+print(f"Koulutukseen kului aikaa: {loppuaika - alkuaika:.2f} sekuntia.")

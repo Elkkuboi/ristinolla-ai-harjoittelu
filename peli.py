@@ -156,7 +156,7 @@ class robotti:
         vanha_arvo = self.hae_arvot(edellinen_tila)
 
         # tarkastetaan, tuliko palkintoa ja päivitetään arvo
-        if palkinto:
+        if palkinto is not None:
             tuleva_arvo = palkinto
 
         # jos ei palkintoa, niin
@@ -174,6 +174,12 @@ class robotti:
 
         uusi_arvo = vanha_arvo + self.oppimisnopeus * (tuleva_arvo - vanha_arvo)
         self.arvot[edellinen_tila] = uusi_arvo
+
+    def paivita_arvot_havio(self, lauta, haviaja):
+        """ Tallentaa hävityn pelin lopputilan arvoksi 0, jotta
+        botti osaa pelata tämän siirron aina ja heti kun mahdollista.
+        """
+        self.arvot[(tuple(lauta), haviaja)] = 0
 
     def tallenna_arvot(self, tiedostonimi = "arvot.json"):
         """Tallentaa opitut arvot JSON-tiedostoon, päällekirjoitetaan kokonaan uudella tiedolla"""
