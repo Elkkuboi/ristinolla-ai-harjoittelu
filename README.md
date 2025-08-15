@@ -15,7 +15,7 @@
 
 1. Kloonaa projekti:
     ```bash
-    git clone https://github.com/kayttaja/ristinolla-ai-harjoittelu.git
+    git clone https://github.com/Elkkuboi/ristinolla-ai-harjoittelu.git
     ```
 2. Siirry projektihakemistoon:
     ```bash
